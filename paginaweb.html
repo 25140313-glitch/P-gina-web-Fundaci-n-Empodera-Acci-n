@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundación Empodera Acción</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            margin: 0;
+            background: linear-gradient(135deg, #fff7fa, #fce7ef);
+            color: #3d2632;
+            line-height: 1.7;
+        }
+
+        header {
+            background: linear-gradient(135deg, #762449, #b83e75, #d66b98);
+            color: white;
+            text-align: center;
+            padding: 48px 20px;
+            box-shadow: 0 5px 20px rgba(91, 24, 54, 0.18);
+        }
+
+        header h1 {
+            margin: 0 0 10px;
+            font-size: clamp(30px, 5vw, 46px);
+            letter-spacing: 1px;
+        }
+
+        header p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+
+        nav {
+            background: #542039;
+            text-align: center;
+            padding: 16px 10px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 4px 14px rgba(50, 15, 33, 0.18);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 6px 12px;
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.2s, transform 0.2s;
+        }
+
+        nav a:hover {
+            color: #ffc4dc;
+            transform: translateY(-2px);
+        }
+
+        .portada {
+            background: linear-gradient(120deg, #f3b7ce, #f9dce7 55%, #eaa1bd);
+            text-align: center;
+            padding: 95px 20px;
+            color: #571c38;
+            border-radius: 0 0 55px 55px;
+            box-shadow: 0 10px 25px rgba(126, 42, 82, 0.12);
+        }
+
+        .portada h2 {
+            font-size: clamp(28px, 4vw, 40px);
+            margin: 0 0 14px;
+        }
+
+        .portada p {
+            max-width: 700px;
+            margin: 0 auto 18px;
+            font-size: 17px;
+        }
+
+        section {
+            padding: 55px 22px;
+            text-align: center;
+            max-width: 1100px;
+            margin: 28px auto;
+        }
+
+        section h2 {
+            color: #9b2f60;
+            font-size: 29px;
+            margin: 0 0 22px;
+        }
+
+        section h2::after {
+            content: "";
+            display: block;
+            width: 58px;
+            height: 4px;
+            background: #d978a1;
+            border-radius: 10px;
+            margin: 12px auto 0;
+        }
+
+        section h3 {
+            color: #81264f;
+        }
+
+        section > p {
+            max-width: 850px;
+            margin: 14px auto 22px;
+        }
+
+        .tarjeta {
+            background: rgba(255, 255, 255, 0.94);
+            padding: 26px;
+            margin: 18px auto;
+            max-width: 720px;
+            border-radius: 18px;
+            border: 1px solid #f3d3e0;
+            box-shadow: 0 8px 24px rgba(104, 35, 68, 0.09);
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 14px 30px rgba(104, 35, 68, 0.15);
+        }
+
+        .tarjeta h3 {
+            margin-top: 0;
+        }
+
+        .tarjeta img {
+            display: block;
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 14px;
+            margin: 18px auto;
+            border: 4px solid #f8d8e5;
+            box-shadow: 0 5px 14px rgba(104, 35, 68, 0.12);
+        }
+
+        .rosa {
+            background: linear-gradient(135deg, #fbe2ec, #f8d2e1);
+            max-width: none;
+            border-radius: 28px;
+            padding-left: max(22px, calc((100% - 1056px) / 2));
+            padding-right: max(22px, calc((100% - 1056px) / 2));
+        }
+
+        ul {
+            text-align: left;
+            display: inline-block;
+            line-height: 2;
+            background: rgba(255, 255, 255, 0.72);
+            padding: 20px 30px 20px 48px;
+            border-radius: 16px;
+        }
+
+        .boton {
+            display: inline-block;
+            background: #8f2b58;
+            color: white;
+            padding: 13px 24px;
+            text-decoration: none;
+            border-radius: 30px;
+            margin-top: 12px;
+            font-weight: 600;
+            box-shadow: 0 6px 15px rgba(91, 24, 54, 0.2);
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .boton:hover {
+            background: #63203f;
+            transform: translateY(-3px);
+        }
+
+        footer {
+            background: linear-gradient(135deg, #542039, #762449);
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+            margin-top: 45px;
+        }
+
+        footer h3 {
+            color: #ffd6e6;
+        }
+
+        @media (max-width: 600px) {
+            nav a {
+                margin: 5px 7px;
+                font-size: 13px;
+            }
+
+            .portada {
+                padding: 70px 18px;
+                border-radius: 0 0 30px 30px;
+            }
+
+            section {
+                padding: 38px 16px;
+            }
+
+            .tarjeta {
+                padding: 20px;
+            }
+
+            .rosa {
+                border-radius: 20px;
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1> Fundación Empodera Acción</h1>
+        <p>Equidad de género y empoderamiento de mujeres y niñas</p>
+        <p>Agenda 2030 | ODS 5</p>
+    </header>
+
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#equipo">Equipo</a>
+        <a href="#ods">ODS 5</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#conclusion">Conclusión</a>
+    </nav>
+
+    <div class="portada" id="inicio">
+        <h2>¡Juntas podemos cambiar el mundo!</h2>
+        <p>Trabajamos para lograr un futuro con igualdad de derechos y oportunidades para todas.</p>
+        <a href="#servicios" class="boton">Conoce lo que ofrecemos</a>
+    </div>
+
+    <section id="nosotros">
+        <h2>¿Quiénes somos?</h2>
+        <p>
+            Somos una fundación creada por estudiantes que busca promover
+            la igualdad de género, los derechos humanos y el empoderamiento
+            de las mujeres y niñas. Nos inspiramos en ONU Mujeres y la Agenda 2030.
+        </p>
+
+        <div class="tarjeta">
+            <h3>Misión</h3>
+            <p>
+                Promover la igualdad de género mediante actividades educativas
+                y campañas que ayuden a eliminar la discriminación.
+            </p>
+        </div>
+
+        <div class="tarjeta">
+            <h3>Visión</h3>
+            <p>
+                Lograr que para el año 2030 exista una sociedad más justa,
+                donde todas las personas tengan las mismas oportunidades.
+            </p>
+        </div>
+    </section>
+
+    <section class="rosa" id="equipo">
+        <h2>Nuestro equipo</h2>
+
+        <div class="tarjeta">
+            <p><b>Fernanda:</b> Directora general y coordinadora.</p>
+            <p><b>Jasibe:</b> Responsable de investigación.</p>
+            <p><b>Paulina:</b> Responsable de planeación y FODA.</p>
+            <p><b>Emily:</b> Diseñadora del sitio web.</p>
+            <p><b>Valeria:</b> Responsable de comunicación y campañas.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Análisis FODA</h2>
+
+        <div class="tarjeta">
+            <h3>Fortalezas</h3>
+            <p>Tenemos un equipo organizado y una misión enfocada en la igualdad.</p>
+        </div>
+
+        <div class="tarjeta">
+            <h3>Oportunidades</h3>
+            <p>Podemos colaborar con escuelas y utilizar las redes sociales.</p>
+        </div>
+
+        <div class="tarjeta">
+            <h3>Debilidades</h3>
+            <p>Tenemos pocos recursos económicos y poca experiencia profesional.</p>
+        </div>
+
+        <div class="tarjeta">
+            <h3>Amenazas</h3>
+            <p>Existen prejuicios, estereotipos y desinformación sobre la igualdad.</p>
+        </div>
+    </section>
+
+    <section class="rosa" id="ods">
+        <h2>Objetivo de Desarrollo Sostenible 5</h2>
+        <h3>Igualdad de género</h3>
+
+        <p>
+            El ODS 5 pertenece a la Agenda 2030 de la ONU y busca lograr
+            la igualdad entre los géneros y empoderar a todas las mujeres
+            y niñas.
+        </p>
+
+        <p>Sus principales objetivos son:</p>
+
+        <ul>
+            <li>Eliminar la discriminación.</li>
+            <li>Prevenir la violencia de género.</li>
+            <li>Promover la igualdad de oportunidades.</li>
+            <li>Apoyar el liderazgo de las mujeres.</li>
+            <li>Garantizar los derechos de todas las niñas y mujeres.</li>
+        </ul>
+    </section>
+
+    <!-- LO QUE OFRECEMOS -->
+
+    <section id="servicios">
+
+        <h2>¿Qué ofrecemos?</h2>
+
+        <p>
+            En Fundación Empodera Acción ofrecemos diferentes actividades
+            y herramientas para ayudar a las mujeres y niñas a desarrollar
+            sus habilidades, conocer sus derechos y tener más oportunidades.
+        </p>
+
+        <div class="tarjeta">
+            <h3> Taller de igualdad de género</h3>
+            <p>
+                Enseñamos qué es la igualdad de género, por qué es importante
+                y cómo podemos practicarla en nuestra vida diaria.
+                También realizamos actividades para identificar y evitar
+                los estereotipos.
+            </p>
+            <img src="img3.png" width="200" height="200">
+            <b>Duración:</b> 2 horas.
+        </div>
+
+        <div class="tarjeta">
+            <h3> Curso de autoestima y confianza</h3>
+            <p>
+                Ayudamos a las participantes a reconocer sus capacidades,
+                fortalecer su confianza y aprender a valorar sus habilidades.
+                Incluye dinámicas de participación y reflexión.
+            </p>
+            <img src="img4.png" width="200" height="200">
+            <b>Duración:</b> 3 sesiones.
+        </div>
+
+        <div class="tarjeta">
+            <h3> Curso de liderazgo femenino</h3>
+            <p>
+                Desarrollamos habilidades de comunicación, trabajo en equipo,
+                toma de decisiones y liderazgo para que las mujeres y niñas
+                puedan participar con seguridad en su comunidad.
+            </p>
+            <img src="img1.png" width="200" height="200">
+            <b>Duración:</b> 3 sesiones.
+        </div>
+
+        <div class="tarjeta">
+            <h3> Taller de prevención de la violencia</h3>
+            <p>
+                Compartimos información sobre los diferentes tipos de violencia,
+                cómo reconocer situaciones de riesgo y la importancia de buscar
+                apoyo en personas e instituciones de confianza.
+            </p>
+            <img src="img2.png" width="200" height="200">
+            <b>Duración:</b> 2 horas.
+        </div>
+
+        <h2>¿A quiénes van dirigidos?</h2>
+
+        <p>
+            Nuestros talleres y cursos están dirigidos principalmente
+            a mujeres y niñas, así como a estudiantes y personas interesadas
+            en aprender sobre la igualdad de género.
+        </p>
+
+        <h2>¿Cómo ayudamos a la comunidad?</h2>
+
+        <p>
+            Buscamos que más personas conozcan sus derechos, desarrollen
+            nuevas habilidades, tengan confianza en sí mismas y puedan
+            participar en la construcción de una sociedad más justa.
+        </p>
+
+    </section>
+
+    <section class="rosa">
+
+        <h2>Alianzas</h2>
+
+        <p>
+            Nuestra fundación toma como inspiración el trabajo de ONU Mujeres
+            y los objetivos de la Agenda 2030. También buscamos colaborar
+            con escuelas y asociaciones para compartir información
+            y realizar actividades.
+        </p>
+
+        <p>
+            Somos un proyecto escolar independiente, no una organización
+            oficial de la ONU.
+        </p>
+
+        <h2>¿Cómo creamos nuestra página?</h2>
+
+        <p>
+            Primero investigamos sobre el ODS 5, después organizamos
+            las responsabilidades del equipo, realizamos el análisis FODA
+            y finalmente diseñamos nuestra página utilizando HTML y CSS.
+        </p>
+
+    </section>
+
+    <section id="conclusion">
+        <h2>Conclusión</h2>
+        <p>
+            Con este proyecto aprendimos que todos podemos ayudar a construir
+            una sociedad más justa. El ODS 5 nos enseña la importancia de
+            respetar los derechos de las mujeres y niñas y ofrecer las mismas
+            oportunidades para todos. ¡El cambio comienza con nosotros!
+        </p>
+    </section>
+
+    <section class="rosa">
+        <h2>Bibliografía</h2>
+
+        <p>
+            Organización de las Naciones Unidas. (s. f.).
+            Objetivo 5: Igualdad de género.
+        </p>
+
+        <p>
+            https://www.un.org/sustainabledevelopment/es/gender-equality/
+        </p>
+
+        <p>
+            ONU Mujeres. (s. f.). Igualdad de género y empoderamiento de las mujeres.
+        </p>
+
+        <p>https://www.unwomen.org/es</p>
+    </section>
+
+    <footer>
+        <h3> Fundación Empodera Acción</h3>
+        <p>Equidad de género y empoderamiento de mujeres y niñas.</p>
+        <p>Agenda 2030 | ODS 5</p>
+        <p>© 2026</p>
+    </footer>
+
+</body>
+</html>
